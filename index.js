@@ -27,7 +27,8 @@ Converter.prototype.parseMySQL = function () {
         host : this.config.mySQL.host,
         user : this.config.mySQL.user,
         password : this.config.mySQL.password,
-        database : this.config.mySQL.database
+        database : this.config.mySQL.database,
+        connectTimeout: this.config.mySQL.timeout * 1000
     });
 };
 

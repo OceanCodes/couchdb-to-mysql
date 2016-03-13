@@ -10,7 +10,8 @@
         "port" : "",
         "user" : "root",
         "password" : "",
-        "database" : "offline"
+        "database" : "offline",
+        "timeout" : 10
     },
 
     "queries" : {

@@ -23,7 +23,7 @@ Converter.prototype.parseCouchDB = function () {
 };
 
 Converter.prototype.parseMySQL = function () {
-    return mysql.createConnection({
+    return mysql.createPool({
         host : this.config.mySQL.host,
         user : this.config.mySQL.user,
         password : this.config.mySQL.password,
@@ -34,8 +34,9 @@ Converter.prototype.parseMySQL = function () {
 
 Converter.prototype.connect = function () {
     var self = this;
-    this.mysql.connect(function (err) {
+    this.mysql.getConnection(function(err, connection) {
         if (err) throw err;
+        connection.release();
         self.listen();
     });
 };
